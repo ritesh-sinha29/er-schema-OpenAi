@@ -2,7 +2,7 @@ import { openai } from "@ai-sdk/openai";
 import { streamText, convertToModelMessages } from "ai";
 import { validateERModel, generateSessionId } from "@/modules/my-project/ErHelper";
 import { NextResponse } from "next/server";
-import { parseSchemaWithGemini } from "@/lib/Gemini";
+import { parseSchemaWithOpenAI } from "@/lib/openai";
 
 export const maxDuration = 30;
 
@@ -117,7 +117,7 @@ export async function POST(req: Request) {
 
         // Parse schema
         console.log("LAST MESSAGE TEXT", lastMessageText);
-        const ermodel = await parseSchemaWithGemini(lastMessageText);
+        const ermodel = await parseSchemaWithOpenAI(lastMessageText);
 
         // Validate
         const validation = validateERModel(ermodel);
