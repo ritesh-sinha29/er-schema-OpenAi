@@ -1,0 +1,43 @@
+
+> er@0.1.0 lint C:\Users\Ritesh Sinha\OneDrive\Desktop\er
+> eslint
+
+
+C:\Users\Ritesh Sinha\OneDrive\Desktop\er\src\app\api\chat\route.ts
+   61:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   64:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   83:27  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  145:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Ritesh Sinha\OneDrive\Desktop\er\src\app\page.tsx
+   11:3   warning  'Controls' is defined but never used            @typescript-eslint/no-unused-vars
+   12:3   warning  'MiniMap' is defined but never used             @typescript-eslint/no-unused-vars
+   26:10  warning  'ScrollArea' is defined but never used          @typescript-eslint/no-unused-vars
+   33:3   warning  'Database' is defined but never used            @typescript-eslint/no-unused-vars
+   60:10  warning  'Suggestions' is defined but never used         @typescript-eslint/no-unused-vars
+   60:23  warning  'Suggestion' is defined but never used          @typescript-eslint/no-unused-vars
+   65:3   warning  'filterNodes' is defined but never used         @typescript-eslint/no-unused-vars
+   66:3   warning  'ermodelToReactFlow' is defined but never used  @typescript-eslint/no-unused-vars
+   67:3   warning  'applyDagreLayout' is defined but never used    @typescript-eslint/no-unused-vars
+  112:26  warning  'currentWidth' is defined but never used        @typescript-eslint/no-unused-vars
+  207:26  error    Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  266:35  error    Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  293:27  error    Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+
+C:\Users\Ritesh Sinha\OneDrive\Desktop\er\src\lib\Gemini.ts
+  402:20  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  421:18  warning  'jsonError' is defined but never used     @typescript-eslint/no-unused-vars
+
+C:\Users\Ritesh Sinha\OneDrive\Desktop\er\src\modules\my-project\ErHelper.ts
+   42:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   43:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  181:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  194:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Ritesh Sinha\OneDrive\Desktop\er\src\types\ERmodel.ts
+  50:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  66:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+Γ£û 25 problems (14 errors, 11 warnings)
+
+ΓÇëELIFECYCLEΓÇë Command failed with exit code 1.
