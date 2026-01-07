@@ -57,7 +57,7 @@ import {
   ReasoningContent,
   ReasoningTrigger,
 } from "@/components/ai-elements/reasoning";
-import { Suggestions, Suggestion } from "@/components/ai-elements/suggestion";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 import {
   cn,
@@ -673,6 +673,7 @@ export default function Home() {
             </div>
 
             <div className="flex items-center gap-2">
+              <ThemeToggle />
               <Button
                 onClick={handleExport}
                 disabled={!schema}
