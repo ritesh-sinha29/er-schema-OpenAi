@@ -1,5 +1,3 @@
-// src/lib/types.ts
-
 import { Node, Edge } from '@xyflow/react';
 
 // ============================================

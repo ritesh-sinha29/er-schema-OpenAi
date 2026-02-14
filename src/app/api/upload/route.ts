@@ -5,7 +5,7 @@ import {
   applyDagreLayout,
   validateERModel,
 } from "@/modules/my-project/ErHelper";
-import { parseSchemaWithGemini } from "@/lib/Gemini";
+import { parseSchemaWithOpenAI } from "@/lib/openai";
 
 export const maxDuration = 180;
 
@@ -28,13 +28,13 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // 2. PARSE SCHEMA WITH GEMINI
-    console.log("Parsing schema with Gemini...");
+    // Parse schema with OpenAI
+    console.log("Parsing schema with OpenAI...");
     let ermodel;
     try {
-      ermodel = await parseSchemaWithGemini(schemaContent);
+      ermodel = await parseSchemaWithOpenAI(schemaContent);
     } catch (error: unknown) {
-      console.error("Gemini parsing failed:", error);
+      console.error("OpenAI parsing failed:", error);
       return NextResponse.json(
         {
           success: false,
@@ -47,7 +47,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // 3. VALIDATE ERMODEL
+    // Validate ERModel
     const validation = validateERModel(ermodel);
     if (!validation.valid) {
       console.error("ERModel validation failed:", validation.errors);
@@ -65,21 +65,21 @@ export async function POST(req: NextRequest) {
       console.warn("ERModel validation warnings:", validation.warnings);
     }
 
-    // 4. GENERATE SESSION ID
+    // Generate session ID
     const sessionId = generateSessionId();
     console.log(`Session created: ${sessionId}`);
 
-    // 5. CONVERT TO REACT FLOW FORMAT
+    // Convert to React Flow format
     const { nodes, edges } = ermodelToReactFlow(ermodel);
 
-    // 6. APPLY LAYOUT ALGORITHM
+    // Apply layout algorithm
     const { nodes: layoutedNodes, edges: layoutedEdges } = applyDagreLayout(
       nodes,
       edges,
-      "LR" // Left-to-Right layout
+      "LR"
     );
 
-    // 7. RETURN SUCCESS RESPONSE
+    // Return success response
     return NextResponse.json({
       success: true,
       sessionId,
@@ -88,7 +88,6 @@ export async function POST(req: NextRequest) {
       edges: layoutedEdges,
     });
   } catch (error: unknown) {
-    // 8. GLOBAL ERROR HANDLER
     console.error("Upload route error:", error);
     return NextResponse.json(
       {

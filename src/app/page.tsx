@@ -8,8 +8,6 @@ import { toast } from "sonner";
 import { Toaster } from "sonner";
 import {
   ReactFlow,
-  Controls,
-  MiniMap,
   Background,
   BackgroundVariant,
   useNodesState,
@@ -23,7 +21,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -57,7 +54,7 @@ import {
   ReasoningContent,
   ReasoningTrigger,
 } from "@/components/ai-elements/reasoning";
-import { Suggestions, Suggestion } from "@/components/ai-elements/suggestion";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 import {
   cn,
@@ -673,6 +670,7 @@ export default function Home() {
             </div>
 
             <div className="flex items-center gap-2">
+              <ThemeToggle />
               <Button
                 onClick={handleExport}
                 disabled={!schema}
